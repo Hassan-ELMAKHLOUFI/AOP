@@ -209,3 +209,127 @@ public class Main {
 ```
 
 # Partie 2 Spring AOP
+# Application Context
+```java
+package ma.elmakhloufi.springaop.aspects;
+
+public class ApplicationContext {
+    private static String username="";
+    private static String password="";
+    private static String[] roles={};
+    public static void authenticateUser(String u,String p,String[] inputRoles){
+        if((u.equals("root"))&&(p.equals("1234")) ){
+            username= u;password=p;
+            roles=inputRoles;
+        }
+        else throw new RuntimeException("Invalid Credentials..");
+    }
+    public static boolean hasRole(String role){
+
+        return false;
+    }
+
+}
+
+```
+
+# Log annotation
+```java
+package ma.elmakhloufi.springaop.aspects;
+
+public @interface Log {
+}
+
+```
+
+# Logging Aspect
+```java
+package ma.elmakhloufi.springaop.aspects;
+
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.stereotype.Component;
+
+import java.util.Date;
+
+@Component
+@Aspect
+@EnableAspectJAutoProxy
+public class LoggingAspect {
+
+    //@Around("execution(* metier.*.*(..))")
+    @Around("@annotation(Log)")
+    public Object log(ProceedingJoinPoint joinPoint) {
+        Object result=null;
+        Date d1 = new Date();
+        System.out.println("Before ...." + d1);
+        try {
+            result = joinPoint.proceed();
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+        }
+        Date d2 = new Date();
+        System.out.println("After .... " + d2);
+        System.out.println("Execution Duration : "+(d2.getTime()-d1.getTime()));
+        return result;
+    }
+
+}
+
+```
+# Auth Annotation
+```java
+package ma.elmakhloufi.springaop.aspects;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+public @interface SecuredByAspect {
+    String[] roles() ;
+}
+
+```
+
+# Security Aspect
+```java
+package ma.elmakhloufi.springaop.aspects;
+
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.springframework.stereotype.Component;
+
+@Component
+@Aspect
+public class SecurityAspect {
+    @Around(value="@annotation(securedByAspect)",argNames =
+            "proceedingJoinPoint,securedByAspect")
+    public Object log(ProceedingJoinPoint proceedingJoinPoint, SecuredByAspect
+            securedByAspect) {
+
+        String[] roles=securedByAspect.roles();
+        boolean authorized=false;
+        for (String r:roles){
+            if(ApplicationContext.hasRole(r)) authorized=true;
+        }
+        if(!authorized){
+            throw new RuntimeException("Not Authorized");
+        }
+        else {
+            try {
+                Object o=proceedingJoinPoint.proceed();
+                return o;
+            } catch (Throwable throwable) {
+                throw new RuntimeException(throwable);
+            }
+        }
+    }
+}
+
+```

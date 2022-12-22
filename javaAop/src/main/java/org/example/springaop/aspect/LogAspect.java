@@ -1,10 +1,7 @@
 package org.example.springaop.aspect;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 
 import java.io.IOException;
 import java.util.logging.FileHandler;
@@ -15,22 +12,28 @@ public class LogAspect {
     private long t1,t2;
     private Logger logger=Logger.getLogger(this.getClass().getName());
     public LogAspect() throws IOException {
-        logger.addHandler(new FileHandler("log.xml"));
+        logger.addHandler(new FileHandler("logj.xml"));
         logger.setUseParentHandlers(false);
     }
-    @Pointcut("execution(* metier.*.*(..))")
+    @Pointcut("execution(* org.example.springaop.metier.*.*(..))")
     public void pc1(){}
     @Before("pc1()")
-    public void before(JoinPoint joinPoint){
+    public void beforeApp(JoinPoint joinPoint){
         logger.info("----------------------------");
         t1=System.currentTimeMillis();
         logger.info("Before "+joinPoint.getSignature());
     }
     @After("pc1()")
-    public void after(JoinPoint joinPoint){
+    public void afterApp(JoinPoint joinPoint){
         t2=System.currentTimeMillis();
         logger.info("After "+joinPoint.getSignature());
         logger.info("Duration:"+(t2-t1));
         logger.info("********************************");
     }
+
+    //private Logger logger = Logger.getLogger(this.getClass().getName());
+
+
+
+
 }

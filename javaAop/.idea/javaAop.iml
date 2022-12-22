@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4">
+  <component name="FacetManager">
+    <facet type="AspectJ" name="AspectJ">
+      <configuration>
+        <option name="aspectPath">
+          <projectLibrary>
+            <option name="name" value="Maven: org.aspectj:aspectjrt:1.9.6" />
+          </projectLibrary>
+        </option>
+      </configuration>
+    </facet>
+  </component>
+</module>

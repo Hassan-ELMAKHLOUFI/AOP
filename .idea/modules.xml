@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/AOP.iml" filepath="$PROJECT_DIR$/.idea/AOP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaAop/javaAop.iml" filepath="$PROJECT_DIR$/javaAop/javaAop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springAOP/springAOP.iml" filepath="$PROJECT_DIR$/springAOP/springAOP.iml" />
+    </modules>
+  </component>
+</project>

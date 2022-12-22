@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-22T21:00:05</date>
+  <millis>1671739205979</millis>
+  <sequence>0</sequence>
+  <logger>org.example.springaop.aspect.LogAspect</logger>
+  <level>INFO</level>
+  <class>org.example.springaop.aspect.LogAspect</class>
+  <method>before</method>
+  <thread>1</thread>
+  <message>----------------------------</message>
+</record>
+<record>
+  <date>2022-12-22T21:00:05</date>
+  <millis>1671739205981</millis>
+  <sequence>1</sequence>
+  <logger>org.example.springaop.aspect.LogAspect</logger>
+  <level>INFO</level>
+  <class>org.example.springaop.aspect.LogAspect</class>
+  <method>before</method>
+  <thread>1</thread>
+  <message>Before void org.example.springaop.metier.IMetierImpl.addCompte(Compte)</message>
+</record>
+<record>
+  <date>2022-12-22T21:00:05</date>
+  <millis>1671739205981</millis>
+  <sequence>2</sequence>
+  <logger>org.example.springaop.aspect.LogAspect</logger>
+  <level>INFO</level>
+  <class>org.example.springaop.aspect.LogAspect</class>
+  <method>after</method>
+  <thread>1</thread>
+  <message>After void org.example.springaop.metier.IMetierImpl.addCompte(Compte)</message>
+</record>
+<record>
+  <date>2022-12-22T21:00:05</date>
+  <millis>1671739205981</millis>
+  <sequence>3</sequence>
+  <logger>org.example.springaop.aspect.LogAspect</logger>
+  <level>INFO</level>
+  <class>org.example.springaop.aspect.LogAspect</class>
+  <method>after</method>
+  <thread>1</thread>
+  <message>Duration:0</message>
+</record>
+<record>
+  <date>2022-12-22T21:00:05</date>
+  <millis>1671739205981</millis>
+  <sequence>4</sequence>
+  <logger>org.example.springaop.aspect.LogAspect</logger>
+  <level>INFO</level>
+  <class>org.example.springaop.aspect.LogAspect</class>
+  <method>after</method>
+  <thread>1</thread>
+  <message>********************************</message>
+</record>
+<record>
+  <date>2022-12-22T21:00:05</date>
+  <millis>1671739205982</millis>
+  <sequence>5</sequence>
+  <logger>org.example.springaop.aspect.LogAspect</logger>
+  <level>INFO</level>
+  <class>org.example.springaop.aspect.LogAspect</class>
+  <method>before</method>
+  <thread>1</thread>
+  <message>----------------------------</message>
+</record>
+<record>
+  <date>2022-12-22T21:00:05</date>
+  <millis>1671739205982</millis>
+  <sequence>6</sequence>
+  <logger>org.example.springaop.aspect.LogAspect</logger>
+  <level>INFO</level>
+  <class>org.example.springaop.aspect.LogAspect</class>
+  <method>before</method>
+  <thread>1</thread>
+  <message>Before Compte org.example.springaop.metier.IMetierImpl.getCompte(Long)</message>
+</record>
+<record>
+  <date>2022-12-22T21:00:05</date>
+  <millis>1671739205982</millis>
+  <sequence>7</sequence>
+  <logger>org.example.springaop.aspect.LogAspect</logger>
+  <level>INFO</level>
+  <class>org.example.springaop.aspect.LogAspect</class>
+  <method>after</method>
+  <thread>1</thread>
+  <message>After Compte org.example.springaop.metier.IMetierImpl.getCompte(Long)</message>
+</record>
+<record>
+  <date>2022-12-22T21:00:05</date>
+  <millis>1671739205982</millis>
+  <sequence>8</sequence>
+  <logger>org.example.springaop.aspect.LogAspect</logger>
+  <level>INFO</level>
+  <class>org.example.springaop.aspect.LogAspect</class>
+  <method>after</method>
+  <thread>1</thread>
+  <message>Duration:0</message>
+</record>
+<record>
+  <date>2022-12-22T21:00:05</date>
+  <millis>1671739205982</millis>
+  <sequence>9</sequence>
+  <logger>org.example.springaop.aspect.LogAspect</logger>
+  <level>INFO</level>
+  <class>org.example.springaop.aspect.LogAspect</class>
+  <method>after</method>
+  <thread>1</thread>
+  <message>********************************</message>
+</record>
+</log>
